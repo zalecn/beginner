@@ -1,0 +1,27 @@
+diff -r 08a7912b8a09 -r 4c04152dfffe sqlautocode/config.py
+--- a/sqlautocode/config.py	Mon Sep 24 10:44:30 2012 +0200
++++ b/sqlautocode/config.py	Wed Apr 17 13:26:23 2013 +0300
+@@ -140,7 +140,7 @@
+         engine = sqlalchemy.create_engine(url)
+         test = engine.connect()
+         test.close()
+-    except sqlalchemy.exceptions.SQLAlchemyError, ex:
++    except sqlalchemy.exc.SQLAlchemyError, ex:
+         parser.error('Could not connect to "%s": %s' % (url, ex))
+ 
+ 
+diff -r 08a7912b8a09 -r 4c04152dfffe sqlautocode/declarative.py
+--- a/sqlautocode/declarative.py	Mon Sep 24 10:44:30 2012 +0200
++++ b/sqlautocode/declarative.py	Wed Apr 17 13:26:23 2013 +0300
+@@ -14,7 +14,11 @@
+     from sqlalchemy.ext.declarative import _deferred_relationship
+ except ImportError:
+     #SA 0.5 support
+-    from sqlalchemy.ext.declarative import _deferred_relation as _deferred_relationship
++    try:
++        from sqlalchemy.ext.declarative import _deferred_relation as _deferred_relationship
++    except ImportError:
++        #SA 0.8 support
++        from sqlalchemy.ext.declarative.clsregistry import _deferred_relationship
+     
+ from sqlalchemy.orm import relation, backref, class_mapper, Mapper
