@@ -22,11 +22,13 @@
 	vi /etc/sysconfig/svnserve  
 	将 OPTIONS="-d -r /home/svn" 改为 svn 版本库存放的目录，:wq 保存退出
 	2.systemctl enable svnserve.service  
-	3.重启服务器
+	3.systemctl restart svnserve.service
 ###问题
 	如果报这样的错：svn: E204900: Can't open file '/var/svn/wangwa/format': Permission denied的错误。那就是与SELinux有关系. 可以直接先关闭：
 	vim /etc/sysconfig/selinux
 	SELINUX值修改为disable.
+
+	非根目录权限设置需要在目录创建后，不然会出现拒接提交。
 ###提交注释限制
 	#!/bin/sh
 	REPOS="$1"
