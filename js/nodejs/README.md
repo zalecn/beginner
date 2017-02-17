@@ -41,3 +41,13 @@ Nodejs 6.3.0版本之后会自带npm的包管理所以不需要单独的安装np
 	error MSB8036: The Windows SDK version 8.1 was not found
 	安装 Windows SDK 8.1
 
+#修改第三库
+git fork
+git clone 
+修改
+修改完成后：
+在 npmjs.org 注册用户
+npm config set registry http://registry.npmjs.org
+npm adduser
+npm publish .
+

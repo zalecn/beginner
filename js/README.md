@@ -20,3 +20,12 @@
 
 	protoc --js_out=library=myproto_libs,binary:. messages.proto base.proto
 	protoc --js_out=import_style=commonjs,binary:. messages.proto base.proto
+
+
+
+
+##WebSocket
+###问题
+1. failed: Connection closed before receiving a handshake response
+	有可能本机开启了代理，关闭代理试试。
+2. 
