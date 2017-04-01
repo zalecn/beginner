@@ -11,7 +11,7 @@
 	cp redis-server redis-cli redis-sentinel redis-benchmark redis-check-aof  /usr/local/bin
 
 	sysctl -w vm.overcommit_memory=1
-	sysctl -w net.core.somaxconn=512
+	sysctl -w net.core.somaxconn=1024
 	echo never > /sys/kernel/mm/transparent_hugepage/enabled
 
 	mkdir /etc/redis
@@ -80,14 +80,14 @@
 	vi /etc/systemd/system/redis_7000.service
 	输入内容
 
-		[Unit]
-		Description=Redis on port 7000
-		[Service]
-		Type=forking
-		ExecStart=/etc/init.d/redis_7000 start
-		ExecStop=/etc/init.d/redis_7000 stop
-		[Install]
-		WantedBy=multi-user.target
+[Unit]
+Description=Redis on port 7000
+[Service]
+Type=forking
+ExecStart=/etc/init.d/redis_7000 start
+ExecStop=/etc/init.d/redis_7000 stop
+[Install]
+WantedBy=multi-user.target
      
     启动 systemctl enable redis_7000.service
     	 systemctl restart redis_7000.service	
@@ -95,5 +95,8 @@
     
     //ip地址需要可非本机访问的
     redis-trib.rb create --replicas 1 192.168.100.101:7000 192.168.100.101:7001 192.168.100.101:7002
+    redis-trib.rb create  127.0.0.1:7000 127.0.0.1:7001 127.0.0.1:7002
+
+    
 
 
