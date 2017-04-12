@@ -100,3 +100,5 @@ WantedBy=multi-user.target
     
 
 
+##删除所有记录命令
+flushall
