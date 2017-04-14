@@ -5,6 +5,9 @@ yum install mariadb mariadb-server
 systemctl enable mariadb-server
 systemctl restart mariadb-server
 
+systemctl enable mariadb.service
+systemctl restart mariadb.service 
+
 	mysql_secure_installation
 	首先是设置密码，会提示先输入密码
 
