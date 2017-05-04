@@ -30,6 +30,7 @@
 
 	开机启动
 	cp utils/redis_init_script /etc/init.d/redis_6379
+	chmod +x /etc/init.d/redis_6379
 	vi /etc/systemd/system/redis_6379.service
 	输入内容
 
@@ -74,6 +75,7 @@
 
 	开机启动
 	cp utils/redis_init_script /etc/init.d/redis_7000
+	chmod +x /etc/init.d/redis_7000
 	vi /etc/init.d/redis_7000
 	修改端口
 

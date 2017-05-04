@@ -1,7 +1,7 @@
 #配置
 [参考](http://www.linuxidc.com/Linux/2016-03/128880.htm)
 ##mariadb
-yum install mariadb mariadb-server
+yum install -y mariadb mariadb-server
 systemctl enable mariadb-server
 systemctl restart mariadb-server
 
@@ -35,17 +35,17 @@ systemctl restart mariadb.service
 	完成。
 
 ##添加用户，设置权限
+
 创建用户命令
-
 mysql>create user username@localhost identified by 'password';
+
 直接创建用户并授权的命令
-
 mysql>grant all on *.* to username@localhost indentified by 'password';
+
 授予外网登陆权限 
-
 mysql>grant all privileges on *.* to username@'%' identified by 'password';
-授予权限并且可以授权
 
+授予权限并且可以授权
 mysql>grant all privileges on *.* to username@'hostname' identified by 'password' with grant option;
 
 刷新权限

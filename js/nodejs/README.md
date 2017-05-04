@@ -9,8 +9,8 @@ Nodejs 6.3.0版本之后会自带npm的包管理所以不需要单独的安装np
 ###编译好的文件
 	wget http://nodejs.org/dist/v6.9.2/node-v6.9.2-linux-x64.tar.gz
 	tar xvf node-v6.9.2-linux-x64.tar.gz
-	ln -s /home/zale/node-v6.9.2-linux-x64/bin/node /usr/local/bin/node
-	ln -s /home/zale/node-v6.9.2-linux-x64/bin/npm /usr/local/bin/npm
+	ln -s /home/software/node-v6.9.2-linux-x64/bin/node /usr/local/bin/node
+	ln -s /home/software/node-v6.9.2-linux-x64/bin/npm /usr/local/bin/npm
 
 ###源文件安装 
 
